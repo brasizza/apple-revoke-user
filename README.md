@@ -19,15 +19,20 @@ Some orientations about it:
 
 3 - You have to create a key that allows you to do a Sign In
 [https://developer.apple.com/account/resources/authkeys/list]()
+
 *This step you have to pay attention, because you can download your key just once, so keep it safe!*
 
 
 Then you can put this values in your .env VALUE to be easier to get it
 
 APPLE_KID is the name of your key that you generate in step 3
+
 APPLE_TEAM_ID is your TeamId that you get in step 1
+
 **You don't need to change the APPLE_AUD_URL value**
+
 APPLE_BUNDLE is your apple package name that you get in step 2
+
 APPLE_KEY_VALUE is your certificate content that you downloaded in the step 3, and open as a text and put it here
 
 ```
@@ -41,3 +46,10 @@ THE CONTENT OF YOUR PRIVATE KEY HERE!
 ```
 
 With all this in your code, you are able to consume the api called 'revoke' 
+
+in /api/apple/revoke in a post ver with the parameters:
+
+- token (the identity token JWT from your user)
+- code (authorization code that the user's login will generate and can be used just ONE for JUST 5 minutes)
+
+You wil recieve a status 200 with a "Account Revoked" or 500 with the erro to fix it!
