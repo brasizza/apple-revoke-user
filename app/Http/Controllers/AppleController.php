@@ -33,7 +33,7 @@ class AppleController extends Controller
 
              GuzzleHelper::makeRequest('POST',$url_revoke, $data);
 
-            return $this->successResponse('Conta revogada!');
+            return $this->successResponse('Account revoked!');
         } catch (Exception $e) {
 
             return $this->errorResponse($e->getMessage(), 500);
